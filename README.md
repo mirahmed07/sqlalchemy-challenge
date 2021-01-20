@@ -28,7 +28,7 @@ The datetime library was used to identify the date 12 months prior to the last d
 ![precipitation.png](Images/precipitation.png)
 
 A statistics summary using `.describe()` revealed the following:
-![stats.png](Images/stats.png)
+![stats.png](Images/stats.PNG)
 
 ### Station Analysis
 
@@ -74,7 +74,7 @@ With the daily normals, the following graph was plotted using tavg, tmin and tma
 
 In this challenge, the first ask was to calculate the precipitation for each weather station and display the results along with station information. After querying the databases for both tables and checking for null values, the query results were saved in  Pandas dataframes in order to make it easier to manipulate data by using groupby and merge. The following dataframe is the result:
 
-![rainfall.png](Images/rainfall.png)
+![rainfall.png](Images/rainfall.PNG)
 
 The second part of this challenge involved finding daily normals for each date of our defined trip from 2018-06-01 to 2018-06-15 (using only the month and day to identify historic data with the same dates) and plotting an area plot as below:
 
