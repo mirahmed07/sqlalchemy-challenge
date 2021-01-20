@@ -3,8 +3,8 @@
 
 ## Background
 
-This assignment involved analyzing and exploring Hawaii's climate data in 2 steps:
-**1. Climate Analysis and Exploration**
+This assignment involved analyzing and exploring Hawaii's climate data in 2 steps:<br>
+**1. Climate Analysis and Exploration**<br>
 **2. Climate App**
 
 ## Step 1: Climate Analysis and Exploration
