@@ -7,16 +7,6 @@ This assignment involved analysing and exploring Hawaii's climate data in 2 step
 **1. Climate Analysis and Exploration**<br>
 **2. Climate App**
 
-## Notes
-
-* All analyses and visualizations, including the bonus challenges, can be found in the Jupyter notebook called `climate-analysis.ipynb`.
-
-* The `Resources` folder contains the `hawaii.sqlite` database file and 2 csv files containing the measurement and station tables.
-
-* The `Images` folder contains 4 visualizations from the analysis and bonus challenges.
-
-* The `app.py` file contains the code for a Flask web app to query the climate database.
-
 ## Step 1: Climate Analysis and Exploration
 
 Python and SQLAlchemy was used to do basic climate analysis and data exploration of the given climate database. All of the analysis was completed using SQLAlchemy ORM queries, Pandas, and Matplotlib.
