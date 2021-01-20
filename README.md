@@ -3,8 +3,8 @@
 
 ## Background
 
-This assignment involved analysing and exploring Hawaii's climate data in 2 steps:<br>
-**1. Climate Analysis and Exploration**<br>
+This assignment involved analyzing and exploring Hawaii's climate data in 2 steps:
+**1. Climate Analysis and Exploration**
 **2. Climate App**
 
 ## Step 1: Climate Analysis and Exploration
@@ -53,7 +53,7 @@ Null hypothesis: The mean difference between the temperatures in June and Decemb
 
 An unpaired test can be used if we comparing temperature observations of different dates agnostic of stations. An extremely low p-value indicates that average (mean) temperatures of Hawaii in June and December are statistically significant and we can reject the null hypothesis.
 
-A paired t-test can be used if we are comparing, the mean temperature observations of each station, just from different timepoints. The p-value is way less than 0.05 so we reject the null hypothesis and conclude that the data is statistically significant.
+A paired t-test can be used if we are comparing the mean temperature observations of each station for June and December. The p-value is way less than 0.05 so we reject the null hypothesis and conclude that the data is statistically significant.
 
 ### Temperature Analysis II
 
@@ -65,7 +65,7 @@ With the daily normals, the following graph was plotted using tavg, tmin and tma
 
 ### Daily Rainfall Average
 
-In this challenge, the first ask was to calculate the precipitation for each weather station and display the results along with station information. After querying the databases for both tables, the query results were saved in  Pandas dataframes. The following dataframe is the result:
+In this challenge, the first ask was to calculate the precipitation for each weather station and display the results along with station information. After querying the databases for both tables, the query results were saved in Pandas dataframe:
 
 ![rainfall.png](Images/rainfall.PNG)
 
