@@ -28,7 +28,7 @@ The datetime library was used to identify the date 12 months prior to the last d
 ![precipitation.png](Images/precipitation.png)
 
 A statistics summary using `.describe()` revealed the following:
-    <p><img src="Images/stats.png" alt="stats" title="Summary Stats" width="180px"></p>
+![stats.png](Images/stats.png)
 
 ### Station Analysis
 
@@ -48,9 +48,9 @@ This is a web app in the `app.py` file, created using SQLAlchemy and Flask API. 
 
 * **Temperature Observations (/api/v1.0/tobs)**: This route displays every date and temperature observation for the most active station in Hawaii (USC00519281) in the last 12 months of data available.
 
-* **Daily Normals from start date (/api/v1.0/start_date)**: This route allows you to enter a start date in the format 'YYYY-MM-DD' to retrieve daily normals (TMIN, TAVG, TMAX) from that date onward until the end of data available.
+* **Daily Normals from start date (/api/v1.0/<start_date>)**: This route allows you to enter a start date in the format 'YYYY-MM-DD' to retrieve daily normals (TMIN, TAVG, TMAX) from that date onward until the end of data available.
 
-* **Daily Normals between start and end date (/api/v1.0/start_date/end_date)**: This route allows you to enter a start date AND an end date in the format 'YYYY-MM-DD' to retrieve daily normals (TMIN, TAVG, TMAX) for the date range.
+* **Daily Normals between start and end date (/api/v1.0/<start_date>/<end_date>)**: This route allows you to enter a start date AND an end date in the format 'YYYY-MM-DD' to retrieve daily normals (TMIN, TAVG, TMAX) for the date range.
 
 ## Bonus Challenges
 
@@ -74,7 +74,7 @@ With the daily normals, the following graph was plotted using tavg, tmin and tma
 
 In this challenge, the first ask was to calculate the precipitation for each weather station and display the results along with station information. After querying the databases for both tables and checking for null values, the query results were saved in  Pandas dataframes in order to make it easier to manipulate data by using groupby and merge. The following dataframe is the result:
 
-![bonus-rainfall-df.png](Images/rainfall.png)
+![rainfall.png](Images/rainfall.png)
 
 The second part of this challenge involved finding daily normals for each date of our defined trip from 2018-06-01 to 2018-06-15 (using only the month and day to identify historic data with the same dates) and plotting an area plot as below:
 
