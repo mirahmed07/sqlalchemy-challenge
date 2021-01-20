@@ -28,6 +28,7 @@ The datetime library was used to identify the date 12 months prior to the last d
 ![precipitation.png](Images/precipitation.png)
 
 A statistics summary using `.describe()` revealed the following:
+
 ![stats.png](Images/stats.PNG)
 
 ### Station Analysis
