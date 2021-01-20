@@ -51,11 +51,13 @@ June and December temperature observations were retrieved by converting string d
 
 Null hypothesis: The mean difference between the temperatures in June and December is zero.
 
-An unpaired t-test was used as we are comparing the means of 2 slightly different groups. In this case, the mean temperature observations are of the same stations, just from different timepoints. The p-value of 3.9e-191 is way less than 0.05 so we reject the null hypothesis and conclude that the data is statistically significant.
+An unpaired test can be used if we comparing temperature observations of different dates agnostic of stations. An extremely low p-value indicates that average (mean) temperatures of Hawaii in June and December are statistically significant and reject the null hypothesis.
+
+A paired t-test can be used if we are comparing, the mean temperature observations of each station, just from different timepoints. The p-value is way less than 0.05 so we reject the null hypothesis and conclude that the data is statistically significant.
 
 ### Temperature Analysis II
 
-This challenge involved using a predefined function that calculated daily normals for a given date range (2018-06-01 to 2018-06-15). The `.timedelta()` method from the datetime library was also used to determine matching start and end dates from the previous year.
+This challenge involved using a predefined function that calculated daily normals for a given date range (2017-08-01 to 2017-08-07). The `.timedelta()` method from the datetime library was also used to determine matching start and end dates from the previous year.
 
 With the daily normals, the following graph was plotted using tavg, tmin and tmax values:
 
@@ -63,10 +65,10 @@ With the daily normals, the following graph was plotted using tavg, tmin and tma
 
 ### Daily Rainfall Average
 
-In this challenge, the first ask was to calculate the precipitation for each weather station and display the results along with station information. After querying the databases for both tables and checking for null values, the query results were saved in  Pandas dataframes in order to make it easier to manipulate data by using groupby and merge. The following dataframe is the result:
+In this challenge, the first ask was to calculate the precipitation for each weather station and display the results along with station information. After querying the databases for both tables, the query results were saved in  Pandas dataframes. The following dataframe is the result:
 
 ![rainfall.png](Images/rainfall.PNG)
 
-The second part of this challenge involved finding daily normals for each date of our defined trip from 2018-06-01 to 2018-06-15 (using only the month and day to identify historic data with the same dates) and plotting an area plot as below:
+The second part of this challenge involved finding daily normals for each date of our defined trip from 2017-08-01 to 2017-08-07 (using only the month and day to identify historic data with the same dates) and plotting an area plot as below:
 
 ![daily-normals.png](Images/trip_temp.png)
