@@ -51,7 +51,7 @@ June and December temperature observations were retrieved by converting string d
 
 Null hypothesis: The mean difference between the temperatures in June and December is zero.
 
-An unpaired test can be used if we comparing temperature observations of different dates agnostic of stations. An extremely low p-value indicates that average (mean) temperatures of Hawaii in June and December are statistically significant and reject the null hypothesis.
+An unpaired test can be used if we comparing temperature observations of different dates agnostic of stations. An extremely low p-value indicates that average (mean) temperatures of Hawaii in June and December are statistically significant and we can reject the null hypothesis.
 
 A paired t-test can be used if we are comparing, the mean temperature observations of each station, just from different timepoints. The p-value is way less than 0.05 so we reject the null hypothesis and conclude that the data is statistically significant.
 
