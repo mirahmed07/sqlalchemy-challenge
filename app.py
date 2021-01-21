@@ -13,14 +13,8 @@ from sqlalchemy import create_engine, func
 from sqlalchemy.pool import StaticPool
 import dateutil.parser as dparser
 
-#################################################
 # Database Setup
-#################################################
-# Reference: https://stackoverflow.com/questions/33055039/using-sqlalchemy-scoped-session-in-theading-thread
-engine = create_engine("sqlite:///Resources/hawaii.sqlite", 
-                       # connect_args={"check_same_thread": False}, 
-                       # poolclass=StaticPool, 
-                       echo=False)
+engine = create_engine("sqlite:///Resources/hawaii.sqlite", echo=False)
 
 # Reflect Existing Database Into a New Model
 Base = automap_base()
@@ -31,41 +25,39 @@ Base.prepare(engine, reflect=True)
 Measurement = Base.classes.measurement
 Station = Base.classes.station
 
-
-
-#################################################
 # Flask Setup
-#################################################
 app = Flask(__name__)
 
-#################################################
-# Flask Routes
-#################################################
 # Home Route
 @app.route("/")
-def welcome():
+def home():
         return """<html>
                         <h1>Mir's Hawaii Climate App (Flask API)</h1>
                         <img src="static\hawaii.png", alt="Hawaii Weather"/>
                         <p>Precipitation analysis for last 12 months:</p>
                                 <ul>
                                 <li><a href="/api/v1.0/precipitation">/api/v1.0/precipitation</a></li>
+                                <li>Ouptput format {date}:{prcp}</li>
                                 </ul>
                         <p>Station inventory:</p>
                                 <ul>
                                 <li><a href="/api/v1.0/stations">/api/v1.0/stations</a></li>
+                                <li>Ouptput format {name}:{value}, {station}:{value}</li>
                                 </ul>
                         <p>Temperature Analysis for last 12 months for the most active station:</p>
                                 <ul>
                                 <li><a href="/api/v1.0/tobs">/api/v1.0/tobs</a></li>
+                                <li>Ouptput format [date , temperature]</li>
                                 </ul>
                         <p>Temperature analysis from start date:</p>
                                 <ul>
                                 <li><a href="/api/v1.0/2017-03-14">/api/v1.0/2017-03-14</a></li>
+                                <li>Ouptput format [date , min temperature, avg temperature, max temperature]</li>
                                 </ul>
                         <p>Temperature analysis between start date & end date:</p>
                                 <ul>
                                 <li><a href="/api/v1.0/2017-08-01/2017-08-07">/api/v1.0/2017-08-01/2017-08-07</a></li>
+                                <li>Ouptput format [date , min temperature, avg temperature, max temperature]</li>
                                 </ul>
                 </html>
                 """
@@ -100,13 +92,21 @@ def stations():
         session = Session(engine)
         # Return a JSON List of Stations From the Dataset
         stations_all = session.query(Station.station, Station.name).distinct().all()
-        # Convert List of Tuples Into Normal List
-        station_list = list(stations_all)
         # Close Session
         session.close()
+        # Create a list of dictionaries with station info using for loop
+        list_stations = []
+
+        for st in stations_all:
+                station_dict = {}
+
+                station_dict["station"] = st[0]
+                station_dict["name"] = st[1]
+
+                list_stations.append(station_dict)        
         print("Server received request for 'stations' page...")
         # Return JSON List of Stations from the Dataset
-        return jsonify(station_list)
+        return jsonify(list_stations)
 
 # TOBs Route
 @app.route("/api/v1.0/tobs")
@@ -136,9 +136,9 @@ def tobs():
         # Return JSON List of Temperature Observations (tobs) for the Previous Year
         return jsonify(tobs_data_list)
 
-# Start Day Route
+# Start Date Route
 @app.route("/api/v1.0/<start>")
-def start_day(start):
+def start_from(start):
         # Create Session (Link) From Python to the DB
         session = Session(engine)
         start_day = session.query(Measurement.date, func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs)).\
@@ -152,9 +152,9 @@ def start_day(start):
         # Return JSON List of Min Temp, Avg Temp and Max Temp for a Given Start Range
         return jsonify(start_day_list)
 
-# Start-End Day Route
+# Start-End Date Route
 @app.route("/api/v1.0/<start>/<end>")
-def start_end_day(start, end):
+def start_to_end(start, end):
         # Create Session (Link) From Python to the DB
         session = Session(engine)
         start_end_day = session.query(Measurement.date, func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs)).\
@@ -169,6 +169,6 @@ def start_end_day(start, end):
         # Return JSON List of Min Temp, Avg Temp and Max Temp for a Given Start-End Range
         return jsonify(start_end_day_list)
 
-# Define Main Behavior
+# Run the app
 if __name__ == '__main__':
     app.run(debug=True)
