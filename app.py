@@ -45,13 +45,13 @@ app = Flask(__name__)
 @app.route("/")
 def welcome():
         return """<html>
-                        <h1>Hawaii Climate App (Flask API)</h1>
+                        <h1>Mir's Hawaii Climate App (Flask API)</h1>
                         <img src="static\hawaii.png", alt="Hawaii Weather"/>
-                        <p>Precipitation Analysis for last 12 months:</p>
+                        <p>Precipitation analysis for last 12 months:</p>
                                 <ul>
                                 <li><a href="/api/v1.0/precipitation">/api/v1.0/precipitation</a></li>
                                 </ul>
-                        <p>Station Analysis:</p>
+                        <p>Station inventory:</p>
                                 <ul>
                                 <li><a href="/api/v1.0/stations">/api/v1.0/stations</a></li>
                                 </ul>
@@ -59,11 +59,11 @@ def welcome():
                                 <ul>
                                 <li><a href="/api/v1.0/tobs">/api/v1.0/tobs</a></li>
                                 </ul>
-                        <p>Start Day Analysis:</p>
+                        <p>Temperature analysis from start date:</p>
                                 <ul>
                                 <li><a href="/api/v1.0/2017-03-14">/api/v1.0/2017-03-14</a></li>
                                 </ul>
-                        <p>Start & End Day Analysis:</p>
+                        <p>Temperature analysis between start date & end date:</p>
                                 <ul>
                                 <li><a href="/api/v1.0/2017-08-01/2017-08-07">/api/v1.0/2017-08-01/2017-08-07</a></li>
                                 </ul>
