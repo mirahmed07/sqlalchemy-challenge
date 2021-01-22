@@ -122,10 +122,13 @@ def tobs():
         # Create Session (Link) From Python to the DB
         session = Session(engine)
         # Find the most recent date in the data set.
-        last_date = session.query(Measurement.date).order_by(Measurement.date.desc()).first()
+        last_date = session.query(Measurement.date).order_by(Measurement.date.desc()).first()[0]
 
+        # Convert string date to date format
+        last_dt = (dt.datetime.strptime(last_date, "%Y-%m-%d")).date()
+        
         # Calculate the date one year from the last date in data set.
-        one_year_ago = dparser.parse(last_date[0],fuzzy=True) - dt.timedelta(days=365)
+        one_year_ago = last_dt - dt.timedelta(days=365)
         
         # Get the most active station.
         most_active_stations = session.query(Measurement.station, func.count(Measurement.station)).\
