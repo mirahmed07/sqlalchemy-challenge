@@ -33,32 +33,36 @@ app = Flask(__name__)
 def home():
         return """<html>
                         <h1>Mir's Hawaii Climate App (Flask API)</h1>
-                        <img src="static\hawaii.png", alt="Hawaii Weather"/>
-                        <p>Precipitation analysis for last 12 months:</p>
+                        <a href = "https://www.hawaiitourismauthority.org/" target = "_blank" ><img src="static\hawaii.png", alt="Hawaii Weather"/></a>
+                        <h2>Precipitation analysis for last 12 months:</h2>
                                 <ul>
-                                <li><a href="/api/v1.0/precipitation">/api/v1.0/precipitation</a></li>
-                                <li>Ouptput format {date}:{prcp}</li>
+                                <li><a href="/api/v1.0/precipitation" target = "_blank">/api/v1.0/precipitation</a></li>
+                                <li><em>Ouptput format {date}:{prcp}</em></li>
                                 </ul>
-                        <p>Station inventory:</p>
+                        <h2>Station inventory:</h2>
                                 <ul>
-                                <li><a href="/api/v1.0/stations">/api/v1.0/stations</a></li>
-                                <li>Ouptput format {name}:{value}, {station}:{value}</li>
+                                <li><a href="/api/v1.0/stations" target = "_blank">/api/v1.0/stations</a></li>
+                                <li><em>Ouptput format {name}:{value}, {station}:{value}</em></li>
                                 </ul>
-                        <p>Temperature Analysis for last 12 months for the most active station:</p>
+                        <h2>Temperature Analysis for last 12 months for the most active station:</h2>
                                 <ul>
-                                <li><a href="/api/v1.0/tobs">/api/v1.0/tobs</a></li>
-                                <li>Ouptput format [date , temperature]</li>
+                                <li><a href="/api/v1.0/tobs" target = "_blank">/api/v1.0/tobs</a></li>
+                                <li><em>Ouptput format [date , temperature]</em></li>
                                 </ul>
-                        <p>Temperature analysis from start date:</p>
+                        <h2>Temperature analysis from start date:</h2>
                                 <ul>
-                                <li><a href="/api/v1.0/2017-03-14">/api/v1.0/2017-03-14</a></li>
-                                <li>Ouptput format [date , min temperature, avg temperature, max temperature]</li>
+                                <li><a href="/api/v1.0/2017-03-14" target = "_blank">/api/v1.0/2017-03-14</a></li>
+                                <li><em>Ouptput format [date , min temperature, avg temperature, max temperature]</em></li>
                                 </ul>
-                        <p>Temperature analysis between start date & end date:</p>
+                        <h2>Temperature analysis between start date & end date:</h2>
                                 <ul>
-                                <li><a href="/api/v1.0/2017-08-01/2017-08-07">/api/v1.0/2017-08-01/2017-08-07</a></li>
-                                <li>Ouptput format [date , min temperature, avg temperature, max temperature]</li>
+                                <li><a href="/api/v1.0/2017-08-01/2017-08-07" target = "_blank">/api/v1.0/2017-08-01/2017-08-07</a></li>
+                                <li><em>Ouptput format [date , min temperature, avg temperature, max temperature]</em></li>
                                 </ul>
+                        <h2>Check out Hawaiian tourist attractions in the video below:</h2>
+                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/su3ejcIeVdo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <p>Copyright &copy; 2020 - All Rights Reserved - (JK!)<a href="#">MirHomeWork</a></p>
+                        <p>This page is used for homework purposes only!!!</p>
                 </html>
                 """
 
